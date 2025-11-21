@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // D. Fungsi Request Pickup (Redirect ke cari-truk.html)
         function requestPickup() {
             console.log("Request pickup diklik, redirecting...");
-            window.location.href = '/cari-truk.html';
+            window.location.href = 'cari-truk.html';
         }
 
         // E. Setup Chart.js
