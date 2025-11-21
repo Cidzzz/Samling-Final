@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samling | Aktivitas Truk</title>
+
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/59135e8829.js" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/aktivitas.css">
+    <script src="javascript/theme-loader.js"></script>
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #fbfbfb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900">
+
+    <div class="container-page pb-24 px-4 md:px-8 pt-10"> 
+        <!-- Header -->
+        <header class="flex items-center justify-between mb-6">
+            <div class="text-center">
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Aktivitas & Riwayat</h1>
+                <p class="text-sm text-gray-400">Status Keberangkatan Truk Sampah</p>
+            </div>
+            <div class="w-10 h-10"></div> <!-- Placeholder for alignment -->
+        </header>
+
+        <!-- Main Content -->
+        <main class="space-y-8" id="activity-container">
+            <!-- Data akan dirender oleh JavaScript -->
+        </main>
+    </div>
+
+    <!-- Bottom Navbar -->
+    <main class="navbar-bottom fixed bottom-0 left-0 w-full bg-white dark:bg-slate-800 border-t dark:border-slate-700 shadow flex justify-between items-center py-2 px-60">
+    <a href="beranda.html" class="flex flex-col items-center gap-1 text-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<path fill="currentColor" d="M21.75 4.69v3.88a2.4 2.4 0 0 1-.71 1.72a2.47 2.47 0 0 1-1.72.71H4.68a2.42 2.42 0 0 1-2.43-2.43V4.69a2.44 2.44 0 0 1 2.43-2.44h14.64a2.44 2.44 0 0 1 1.72.72a2.4 2.4 0 0 1 .71 1.72M11 15.43v3.89a2.42 2.42 0 0 1-2.43 2.43H4.68a2.42 2.42 0 0 1-2.43-2.43v-3.88A2.44 2.44 0 0 1 4.68 13h3.89a2.42 2.42 0 0 1 1.71.72a2.46 2.46 0 0 1 .72 1.71m10.75.01v3.88a2.4 2.4 0 0 1-.71 1.72a2.47 2.47 0 0 1-1.72.71h-3.89a2.45 2.45 0 0 1-1.72-.71a2.4 2.4 0 0 1-.71-1.72v-3.88A2.46 2.46 0 0 1 15.43 13h3.89a2.44 2.44 0 0 1 1.72.72a2.4 2.4 0 0 1 .71 1.72" />
+</svg>
+        <span class="text-sm">Beranda</span>
+    </a>
+
+    <a href="aktivitas.html" class="flex flex-col items-center gap-1 text-green-600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+	<path fill="currentColor" d="M6.962 2.421c1.276-.171 2.908-.171 4.981-.171h.114c2.073 0 3.705 0 4.98.171c1.31.176 2.354.545 3.175 1.367c.822.821 1.19 1.866 1.367 3.174c.171 1.276.171 2.908.171 4.981v.114c0 2.073 0 3.705-.171 4.98c-.176 1.31-.545 2.354-1.367 3.175c-.821.822-1.866 1.19-3.174 1.367c-1.276.171-2.908.171-4.981.171h-.114c-2.073 0-3.705 0-4.98-.171c-1.31-.176-2.354-.545-3.175-1.367c-.822-.821-1.19-1.866-1.367-3.174c-.171-1.276-.171-2.908-.171-4.981v-.114c0-2.073 0-3.705.171-4.98c.176-1.31.545-2.354 1.367-3.175c.821-.822 1.866-1.19 3.174-1.367m4.773 4.432a.75.75 0 0 0-1.431-.132L8.492 11.25H7a.75.75 0 0 0 0 1.5h2a.75.75 0 0 0 .696-.472l1.063-2.657l1.506 7.526a.75.75 0 0 0 1.431.132l1.812-4.529H17a.75.75 0 0 0 0-1.5h-2a.75.75 0 0 0-.696.471L13.24 14.38z" />
+</svg>
+        <span class="text-sm">Aktivitas</span>
+    </a>
+
+    <a href="patners.html" class="flex flex-col items-center gap-1 text-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+	<path fill="#d1d5dc" d="M19.291 6h.71a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-2l-4.17-5.836a2 2 0 0 0-2.201-.753l-2.486.746a2 2 0 0 1-1.988-.502l-.293-.293a1 1 0 0 1 .152-1.539l5.401-3.6a2 2 0 0 1 2.183-.024l4.156 2.645A1 1 0 0 0 19.29 6M5.027 14.295l-1.616 1.414a1 1 0 0 0 .041 1.538l5.14 4.04a1 1 0 0 0 1.487-.29l.704-1.232a2 2 0 0 0-.257-2.338l-2.702-2.972a2 2 0 0 0-2.797-.16M7.046 5H3a1 1 0 0 0-1 1v7.516a2 2 0 0 0 .35 1.13l.074-.066l1.615-1.414a3.5 3.5 0 0 1 4.895.28l2.702 2.972a3.5 3.5 0 0 1 .45 4.09l-.655 1.146a2 2 0 0 0 1.738-.155l4.41-2.646a1 1 0 0 0 .299-1.438l-5.267-7.379a.5.5 0 0 0-.55-.188l-2.486.745a3.5 3.5 0 0 1-3.48-.877l-.293-.293a2.5 2.5 0 0 1 .38-3.848z" />
+</svg>
+        <span class="text-sm">Partner</span>
+    </a>
+
+    <a href="akun.html" class="flex flex-col items-center gap-1 text-gray-300">
+        <i class="fa-solid fa-user  "></i>
+        <span class="text-sm">Akun</span>
+    </a>
+</main>
+
+<script src="javascript/partner_data.js"></script>
+<script src="javascript/truck_data.js"></script>
+<script src="javascript/aktivitas.js"></script>
+<script src="javascript/global.js"></script>
+<script src="javascript/theme.js"></script>
+
+</body>
+</html>

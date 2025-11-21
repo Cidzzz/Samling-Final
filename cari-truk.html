@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samling | Cari Truk</title>
+
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/59135e8829.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/dasbor.css">
+
+    <!-- Theme Loader -->
+    <script src="javascript/theme-loader.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+        /* Animasi tambahan untuk transisi yang smooth */
+        .btn-transition {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-gray-100">
+
+    <section class="flex flex-col gap-6 py-6">
+        <section class="tps flex flex-row justify-start items-center gap-6 w-[94%] mx-auto">
+            <button class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-sm text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 transition flex items-center justify-center" onclick="window.location.href='beranda.html'">
+                 <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <main class="tps-info flex flex-col gap-2">
+                <main class="flex flex-col">
+                    <h2 class="text-xl font-semibold">Minta Angkut</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Cari Truk Sampah Terdekat</p>
+                </main>
+            </main>
+        </section>
+
+        <!-- Truck list will be rendered here -->
+        <section id="truck-list-container" class="flex flex-col gap-6">
+        </section>
+    
+    </section>
+
+<script src="javascript/truck_data.js"></script>
+<script src="javascript/truk.js"></script>
+<script src="javascript/global.js"></script>
+<script src="javascript/theme.js"></script>
+
+</body>
+</html>

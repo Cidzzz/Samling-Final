@@ -1,0 +1,7 @@
+        const defaultData = [
+            { id: 1, name: "GreenCompost Sidoarjo", desc: "Penyedia solusi pengomposan lokal", category: "organik", req: "500 kg/minggu", distance: 2.3, icon: "fa-leaf", phone: "859195391196", verified: true, lat: -7.4478, lng: 112.7183 },
+            { id: 2, name: "EcoFarm Waru", desc: "Solusi pupuk & pertanian skala menengah", category: "organik", req: "800 kg/minggu", distance: 4.1, icon: "fa-seedling", phone: "85606671065", verified: false, lat: -7.3787, lng: 112.7376 },
+            { id: 3, name: "BioEnergy Candi", desc: "Produksi biogas & energi terbarukan", category: "non-organik", req: "1000 kg/minggu", distance: 6.5, icon: "fa-industry", phone: "859195391196", verified: true, lat: -7.4892, lng: 112.7124 },
+            { id: 4, name: "Urban Farming Porong", desc: "Pertanian urban & komunitas", category: "organik", req: "150 kg/minggu", distance: 1.8, icon: "fa-leaf", phone: "85606671065", verified: false, lat: -7.5328, lng: 112.6989 },
+            { id: 5, name: "Plastik Reborn Krian", desc: "Daur ulang plastik menjadi bijih", category: "non-organik", req: "2000 kg/minggu", distance: 12.5, icon: "fa-bottle-water", phone: "812345678", verified: true, lat: -7.4082, lng: 112.5830 },
+        ];
