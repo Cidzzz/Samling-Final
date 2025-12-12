@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengaturan Akun - SmartWaste</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/59135e8829.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+     
+    <script src="javascript/theme-loader.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            DEFAULT: '#10b981', // Emerald 500
+                            dark: '#059669',    // Emerald 600
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+        <link rel="stylesheet" href="css/akun.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body class="bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-gray-100 min-h-screen flex flex-col font-sans pb-24">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-700 px-4 py-4 flex items-center gap-4">
+        <a href="beranda.html" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+            <i class="fa-solid fa-chevron-left text-lg"></i>
+        </a>
+        <h1 class="text-lg font-bold tracking-tight">Profil Saya</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-5 space-y-6 max-w-lg mx-auto w-full">
+
+        <!-- Profile Section -->
+        <section class="bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-5 flex items-center gap-5 border border-gray-100 dark:border-slate-700">
+            <div class="relative">
+                <img id="profileAvatar" src="https://api.dicebear.com/9.x/avataaars/svg?seed=Greg" alt="Avatar" class="w-20 h-20 rounded-full object-cover border-4 border-emerald-50 dark:border-emerald-900/30 bg-gray-100" />
+                <div class="absolute bottom-0 right-0 bg-emerald-500 border-2 border-white dark:border-slate-800 w-6 h-6 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-check text-white text-[10px]"></i>
+                </div>
+            </div>
+            <div>
+                <h2 id="displayProfileName" class="text-xl font-bold">admin</h2> 
+                <p class="text-sm text-gray-500 dark:text-gray-400">@admin.com</p> 
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300 text-xs px-2 py-0.5 rounded-full font-medium">Level 5</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">1,200 Poin</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu List -->
+        <div class="space-y-6">
+
+            <!-- Group: Akun -->
+            <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 ml-1">Pengaturan Akun</h3>
+                <ul class="bg-white dark:bg-slate-800 shadow-sm rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 divide-y divide-gray-100 dark:divide-slate-700">
+                    
+                    <!-- Tombol Edit Profil -->
+                    <li class="group cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700/50 transition" id="btnEditProfil">
+                        <div class="flex items-center justify-between p-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-500 flex items-center justify-center">
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                                <span class="font-medium">Edit Profil</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </li>
+
+                    <li class="group cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700/50 transition">
+                        <a href="#" class="flex items-center justify-between p-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-orange-50 dark:bg-orange-900/20 text-orange-500 flex items-center justify-center">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <span class="font-medium">Ubah Kata Sandi</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Group: Preferensi -->
+            <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 ml-1">Preferensi</h3>
+                <ul class="bg-white dark:bg-slate-800 shadow-sm rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 divide-y divide-gray-100 dark:divide-slate-700">
+                    <li class="p-4 flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-500 flex items-center justify-center">
+                                <i class="fa-regular fa-bell"></i>
+                            </div>
+                            <span class="font-medium">Notifikasi</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" class="peer" checked />
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                    <li class="p-4 flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 flex items-center justify-center">
+                                <i class="fa-solid fa-moon"></i>
+                            </div>
+                            <span class="font-medium">Mode Gelap</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="darkToggle" class="peer" />
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Group: Lainnya -->
+            <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 ml-1">Lainnya</h3>
+                <ul class="bg-white dark:bg-slate-800 shadow-sm rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 divide-y divide-gray-100 dark:divide-slate-700">
+                    
+                    <!-- MENU TENTANG SAMLING (DIPERBARUI) -->
+                    <li class="group cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700/50 transition" id="btnTentang">
+                        <div class="flex items-center justify-between p-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-500 flex items-center justify-center">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </div>
+                                <span class="font-medium">Tentang Samling</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </li>
+
+                    <li class="cursor-pointer hover:bg-red-50 dark:hover:bg-red-900/10 transition" id="logoutBtn">
+                        <div class="flex items-center justify-between p-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-red-50 dark:bg-red-900/20 text-red-500 flex items-center justify-center">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                </div>
+                                <span class="font-medium text-red-500">Keluar</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-gray-400 py-4">SmartWaste v1.0.2 • Build 2024</p>
+        
+    </main>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar-bottom fixed bottom-0 w-full bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 px-6 py-3 flex justify-between items-center z-50 text-gray-400 dark:text-gray-500">
+        <a href="beranda.html" class="nav-item flex flex-col items-center gap-1 hover:text-emerald-500">
+            <i class="fa-solid fa-house text-xl mb-0.5"></i>
+            <span class="text-[10px] font-medium">Beranda</span>
+        </a>
+        <a href="peta.html" class="nav-item flex flex-col items-center gap-1 hover:text-emerald-500">
+            <i class="fa-solid fa-map-location-dot text-xl mb-0.5"></i>
+            <span class="text-[10px] font-medium">Peta</span>
+        </a>
+        <a href="patners.html" class="nav-item flex flex-col items-center gap-1 hover:text-emerald-500">
+            <i class="fa-solid fa-industry text-xl mb-0.5"></i>
+            <span class="text-[10px] font-medium">Industri</span>
+        </a>
+        <a href="akun.html" class="nav-item active flex flex-col items-center gap-1 text-emerald-500">
+            <i class="fa-solid fa-user text-xl mb-0.5"></i>
+            <span class="text-[10px] font-medium">Akun</span>
+        </a>
+    </nav>
+
+    <!-- MODAL: Edit Profil -->
+    <div id="editProfilModal" class="hidden fixed inset-0 z-[60] flex items-end sm:items-center justify-center">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" id="editModalBackdrop"></div>
+        <div class="bg-white dark:bg-slate-800 w-full sm:max-w-md p-6 rounded-t-3xl sm:rounded-3xl shadow-2xl relative z-10 animate-modalFade flex flex-col max-h-[90vh]">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold dark:text-white">Edit Profil</h3>
+                <button id="closeEditModal" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 flex items-center justify-center hover:bg-gray-200 transition">
+                    <i class="fa-solid fa-xmark text-gray-500"></i>
+                </button>
+            </div>
+            <div class="overflow-y-auto no-scrollbar space-y-6 pb-4">
+                <div class="flex flex-col items-center justify-center space-y-3">
+                    <div class="relative">
+                        <img id="modalPreviewAvatar" src="" class="w-24 h-24 rounded-full object-cover border-4 border-emerald-100 dark:border-emerald-900/50 shadow-md bg-gray-50" alt="Preview">
+                        <div class="absolute bottom-0 right-0 bg-emerald-500 text-white rounded-full p-1.5 border-2 border-white dark:border-slate-800 shadow-sm">
+                            <i class="fa-solid fa-camera text-xs"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 font-medium">Preview Tampilan</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Ganti Foto Profil</label>
+                    <div class="grid grid-cols-4 gap-2 sm:gap-4 mb-4">
+                        <label class="cursor-pointer group text-center">
+                            <input type="radio" name="avatarSelect" value="https://api.dicebear.com/9.x/avataaars/svg?seed=Felix" class="peer sr-only">
+                            <div class="relative rounded-full p-1 border-2 border-transparent peer-checked:border-emerald-500 transition-all hover:bg-gray-50 dark:hover:bg-slate-700">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Felix" class="w-full rounded-full" alt="Avatar 1">
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group text-center">
+                            <input type="radio" name="avatarSelect" value="https://api.dicebear.com/9.x/avataaars/svg?seed=Joshua" class="peer sr-only">
+                            <div class="relative rounded-full p-1 border-2 border-transparent peer-checked:border-emerald-500 transition-all hover:bg-gray-50 dark:hover:bg-slate-700">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Joshua" class="w-full rounded-full" alt="Avatar 2">
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group text-center">
+                            <input type="radio" name="avatarSelect" value="https://api.dicebear.com/9.x/avataaars/svg?seed=Alyssa" class="peer sr-only">
+                            <div class="relative rounded-full p-1 border-2 border-transparent peer-checked:border-emerald-500 transition-all hover:bg-gray-50 dark:hover:bg-slate-700">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Alyssa" class="w-full rounded-full" alt="Avatar 3">
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group text-center">
+                            <input type="radio" name="avatarSelect" value="https://api.dicebear.com/9.x/avataaars/svg?seed=Sophia" class="peer sr-only">
+                            <div class="relative rounded-full p-1 border-2 border-transparent peer-checked:border-emerald-500 transition-all hover:bg-gray-50 dark:hover:bg-slate-700">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Sophia" class="w-full rounded-full" alt="Avatar 4">
+                            </div>
+                        </label>
+                    </div>
+                    <div class="relative">
+                        <input type="file" id="fileInput" accept="image/*" class="hidden">
+                        <button type="button" onclick="document.getElementById('fileInput').click()" 
+                            class="w-full py-2.5 px-4 border border-dashed border-gray-300 dark:border-slate-600 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-400 hover:border-emerald-500 hover:text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            Atau upload foto dari galeri
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Username</label>
+                    <div class="relative">
+                        <input type="text" value="@admin.com" 
+                            class="w-full pl-4 pr-10 py-3 bg-gray-100 dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-xl text-sm">
+                        <i class="fa-solid fa-lock absolute right-4 top-3.5 text-gray-400 text-xs"></i>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Nama Tampilan</label>
+                    <input type="text" id="inputDisplayName" placeholder="Nama Lengkap"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition outline-none text-gray-900 dark:text-white text-sm">
+                </div>
+            </div>
+            <div class="pt-4 mt-auto">
+                <button id="btnSimpanProfil" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold shadow-lg shadow-emerald-500/30 transition active:scale-95">
+                    Simpan Perubahan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Tentang Samling (BARU) -->
+    <div id="tentangModal" class="hidden fixed inset-0 z-[60] flex items-end sm:items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" id="tentangBackdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="bg-white dark:bg-slate-800 w-full sm:max-w-lg p-6 rounded-t-3xl sm:rounded-3xl shadow-2xl relative z-10 animate-modalFade flex flex-col max-h-[85vh]">
+            
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-4 border-b border-gray-100 dark:border-slate-700 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-emerald-100 dark:bg-emerald-900/30 p-2 rounded-xl">
+                        <i class="fa-solid fa-leaf text-emerald-600 dark:text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white">Tentang Samling</h3>
+                </div>
+                <button id="closeTentang" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 flex items-center justify-center hover:bg-gray-200 transition">
+                    <i class="fa-solid fa-xmark text-gray-500"></i>
+                </button>
+            </div>
+
+            <!-- Content Scrollable -->
+            <div class="overflow-y-auto no-scrollbar space-y-6 text-sm text-gray-600 dark:text-gray-300 leading-relaxed pb-2">
+                
+                <!-- Deskripsi -->
+                <section>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-base">Deskripsi Proyek</h4>
+                    <p class="text-justify">
+                        Samling adalah sebuah sistem terintegrasi berbasis teknologi IoT dan web yang dirancang untuk mengatasi permasalahan sampah di lingkungan rumah tangga, baik di kawasan pedesaan maupun perumahan modern. Proyek ini berfokus pada digitalisasi proses pengelolaan sampah, mulai dari pemantauan tingkat kepenuhan tempat sampah, pengangkutan oleh petugas, pemilahan di TPS, hingga distribusi ke mitra pengelola limbah.
+                    </p>
+                </section>
+
+                <!-- Latar Belakang -->
+                <section>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-base">Latar Belakang</h4>
+                    <p class="text-justify mb-3">
+                        Permasalahan sampah di Indonesia masih menjadi isu lingkungan yang mendesak. Data menunjukkan bahwa sebagian besar sampah nasional belum terkelola dengan baik, berpotensi mencemari lingkungan. Banyak TPS masih bersifat konvensional tanpa sistem pemantauan kapasitas, menyebabkan overload dan manajemen yang reaktif.
+                    </p>
+                    <p class="text-justify">
+                        Samling hadir untuk menjawab kebutuhan akan solusi pengelolaan sampah yang modern, terintegrasi, dan berbasis data real-time untuk menghubungkan warga, petugas, dan pengelola dalam satu ekosistem yang efisien.
+                    </p>
+                </section>
+
+                <!-- Manfaat -->
+                <section class="bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl border border-gray-100 dark:border-slate-700">
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-3 text-base flex items-center gap-2">
+                        <i class="fa-solid fa-star text-yellow-400"></i> Manfaat Utama
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-800 dark:text-gray-200">Manajemen Proaktif</strong>
+                                <span class="text-xs opacity-80">Petugas tahu persis kapan dan di mana sampah perlu diangkut, menghemat waktu dan bahan bakar.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-800 dark:text-gray-200">Mencegah Overload</strong>
+                                <span class="text-xs opacity-80">Visibilitas penuh atas kapasitas TPS untuk perencanaan pengosongan yang lebih baik.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-800 dark:text-gray-200">Ekonomi Sirkular</strong>
+                                <span class="text-xs opacity-80">Menghubungkan rantai pasok daur ulang dengan data ketersediaan sampah terpilah yang akurat.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Logout -->
+    <div id="logoutModal" class="hidden fixed inset-0 z-[60] flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" id="modalBackdrop"></div>
+        <div class="bg-white dark:bg-slate-800 w-full max-w-sm p-6 rounded-2xl shadow-2xl relative z-10 animate-modalFade text-center">
+            <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-arrow-right-from-bracket text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 dark:text-white">Ingin Keluar?</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-6 text-sm">Apakah Anda yakin ingin keluar dari akun Anda?</p>
+            <div class="flex gap-3">
+                <button id="cancelLogout" class="flex-1 py-2.5 px-4 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition">Batal</button>
+                <a href="login.html" class="flex-1 py-2.5 px-4 bg-red-500 text-white rounded-xl font-medium hover:bg-red-600 shadow-lg shadow-red-500/30 transition">Ya, Keluar</a>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/global.js"></script>
+    <script src="javascript/akun.js"></script>
+</body>
+</html>

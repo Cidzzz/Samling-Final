@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samling - Loading</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- Google Fonts: DM Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+     <script src="https://kit.fontawesome.com/59135e8829.js" crossorigin="anonymous"></script>
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Latar belakang putih bersih */
+            background-color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            overflow: hidden;
+        }
+
+        .splash-container {
+            text-align: center;
+        }
+
+        /* Styling Logo Daun */
+        .logo {
+           
+            fill: #38a169; /* Warna Hijau Tua yang Elegan */
+            opacity: 0;
+            /* Animasi logo muncul */
+            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+
+        /* Styling Judul Samling */
+        .title {
+            margin-top: 15px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #38a169; /* Sesuaikan dengan warna logo */
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(20px);
+            /* Animasi teks muncul setelah logo */
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .tagline {
+            margin-top: 5px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 1rem;
+            color: #66bb6a; /* Hijau lebih muda */
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        /* Definisi Animasi */
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-container">
+        <i class="fas fa-leaf logo  text-green-600 text-[80px]" ></i>
+        
+        <div class="title">Samling</div>
+        <div class="tagline">Sampah Lingkungan</div>
+    </div>
+
+    <script>
+        // Script untuk redirect otomatis
+        // Waktu tunggu 3000ms = 3 detik
+        setTimeout(function() {
+            window.location.href = 'login.html';
+        }, 3000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* CSS untuk Riwayat Mitra */
+body {
+    background-color: #f8f9fa;
+}
+
+.transaction-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    padding: 1.25rem;
+    border: 1px solid #f1f2f4;
+    transition: all 0.2s ease-in-out;
+}
+
+.transaction-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+}
