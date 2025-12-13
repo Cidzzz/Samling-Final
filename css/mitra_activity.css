@@ -1,0 +1,49 @@
+/* Styling for the Mitra requests and history sections */
+#mitra-requests .mitra-card,
+#mitra-history .mitra-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#mitra-requests .mitra-info,
+#mitra-history .mitra-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#mitra-requests .mitra-actions,
+#mitra-history .mitra-actions {
+    position: relative;
+}
+
+#mitra-requests .dropdown-menu,
+#mitra-history .dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#mitra-requests .dropdown-menu button,
+#mitra-history .dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#mitra-requests .dropdown-menu button:hover,
+#mitra-history .dropdown-menu button:hover {
+    background-color: #f7fafc;
+}

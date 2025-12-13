@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samling | Layanan Kebersihan Terpadu</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/59135e8829.js" crossorigin="anonymous"></script>
+
+    <!-- DM Sans Font -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Konfigurasi Warna Kustom -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#16A34A', 
+                        primaryHover: '#15803d',
+                        brand: '#16A34A',
+                        'brand-medium': '#16A34A',
+                        'brand-strong': '#15803d',
+                        'neutral-secondary-medium': '#f9fafb',
+                        'default-medium': '#e5e7eb',
+                        'heading': '#1f2937',
+                        'body': '#6b7280',
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                    },
+                    borderRadius: {
+                        'base': '0.375rem', // Fallback untuk rounded-base
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .glass-border {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Styling untuk Pin Peta */
+        .pin {
+            width: 32px;
+            height: 32px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ef4444'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+            background-size: cover;
+            position: absolute;
+            transform: translate(-50%, -100%);
+            z-index: 30;
+            cursor: pointer;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            transition: transform 0.2s;
+        }
+        .pin:hover {
+            transform: translate(-50%, -110%) scale(1.1);
+        }
+
+        /* Map Grid Area */
+        .map-grid {
+            cursor: grab;
+            background-color: #e5e7eb;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .map-grid:active {
+            cursor: grabbing;
+        }
+
+        /* Animasi Toast */
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        .toast-show { animation: slideIn 0.5s forwards; }
+        .toast-hide { animation: slideOut 0.5s forwards; }
+
+        /* Styles Bawaan */
+        @keyframes shake {
+            10%, 90% { transform: translateX(-1px); }
+            20%, 80% { transform: translateX(2px); }
+            30%, 50%, 70% { transform: translateX(-4px); }
+            40%, 60% { transform: translateX(4px); }
+        }
+        .shake { animation: shake 0.7s cubic-bezier(.36,.07,.19,.97) both; }
+    </style>
+    
+    <script src="javascript/theme-loader.js"></script>
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Container Utama -->
+    <!-- flex-col-reverse: Mobile (Login di atas, Map di bawah) -->
+    <!-- md:flex-row: Desktop (Map di kiri, Login di kanan) -->
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden w-full max-w-6xl flex flex-col-reverse md:flex-row min-h-[600px]">
+
+        <!-- BAGIAN 1: MAP SECTION (Kiri Desktop / Bawah Mobile) -->
+        <!-- Menggunakan kode HTML baru Anda -->
+        <div class="w-full md:w-1/2 bg-gray-50 p-4 md:p-6 flex flex-col justify-center relative border-t md:border-t-0 md:border-r border-gray-200">
+            
+            <section class="relative rounded-2xl overflow-hidden shadow-xs glass-card bg-white w-full h-full min-h-[400px]">
+                
+                <!-- Map Container -->
+                <div class="map-grid absolute inset-0">
+                    <img src="img/Live Map-2.png" id="map-image" alt="Peta Wilayah" class="max-w-none transform origin-center"
+                    onerror="this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop'; this.style.opacity='0.5';">
+                </div>
+
+                <!-- LABEL STATUS SAMPAH -->
+                <main class="status-tong-sampah absolute flex flex-col items-start justify-center bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-gray-100 z-20 top-20 right-4 w-40">
+                    <p class="font-semibold text-xs text-gray-800 mb-2 uppercase tracking-wider">Status Sampah</p>
+                    <div class="space-y-2 text-xs font-medium text-gray-600 w-full">
+                        <div class="flex flex-row justify-start items-center gap-2">
+                            <span class="block bg-[#24C529] w-2.5 h-2.5 rounded-full shadow-sm"></span>
+                            <p>0-40%</p>
+                        </div>
+                        <div class="flex flex-row justify-start items-center gap-2">
+                            <span class="block bg-[#FFA600] w-2.5 h-2.5 rounded-full shadow-sm"></span>
+                            <p>40-70%</p>
+                        </div>
+                        <div class="flex flex-row justify-start items-center gap-2">
+                            <span class="block bg-[#FF0000] w-2.5 h-2.5 rounded-full shadow-sm"></span>
+                            <p>70-100%</p>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- TOP BAR (Search & Title) -->
+                <main class="top-bar-map absolute top-4 left-4 right-4 flex flex-row justify-between z-20 bg-gray-50/90 backdrop-blur-sm p-2 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="hidden sm:flex flex-row justify-center items-center gap-2 text-black px-3 py-1 rounded-full text-xs glass-border whitespace-nowrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="text-brand">
+                            <path fill="currentColor" d="M17.657 5.304c-3.124-3.073-8.189-3.073-11.313 0a7.78 7.78 0 0 0 0 11.13L12 21.999l5.657-5.565a7.78 7.78 0 0 0 0-11.13M12 13.499c-.668 0-1.295-.26-1.768-.732a2.503 2.503 0 0 1 0-3.536c.472-.472 1.1-.732 1.768-.732s1.296.26 1.768.732a2.503 2.503 0 0 1 0 3.536c-.472.472-1.1.732-1.768.732" />
+                        </svg>
+                        <h5 class="font-bold text-sm">Live Map</h5>
+                    </div>
+                    
+                    <form class="w-full sm:w-[60%] ml-auto">
+                        <div class="flex shadow-xs rounded-base -space-x-0.5 gap-2">
+                            <input type="search" id="search-dropdown" class="bg-white border-none px-3 py-2 bg-neutral-secondary-medium border border-default-medium text-heading text-sm focus:ring-brand focus:border-brand block w-full placeholder:text-body rounded-md shadow-inner" placeholder="Cari Lokasi..." required>
+                            <button type="button" class="text-white bg-green-600 hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-e-base text-sm px-4 py-2 focus:outline-none rounded-md transition-colors">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+                            </button>
+                        </div>
+                    </form>
+                </main>
+
+                <!-- TOMBOL LAPOR (Floating Button) -->
+                <!-- Menambahkan kembali tombol lapor agar tidak hilang -->
+                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 w-full px-4 flex justify-center">
+                    <button id="laporButton" class="group flex items-center gap-2 bg-brand hover:bg-brand-strong text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <i class="fas fa-truck-loading text-lg"></i>
+                        <span class="font-bold text-sm">Lapor Angkut Sampah</span>
+                    </button>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- BAGIAN 2: LOGIN PETUGAS (Kanan Desktop / Atas Mobile) -->
+        <div class="w-full md:w-1/2 bg-white p-8 md:p-12 flex flex-col justify-center">
+            
+            <div class="w-full max-w-md mx-auto">
+                <!-- Header -->
+                <div class="mb-8">
+                    <h2 class="text-3xl text-primary font-bold mb-2 flex items-center gap-2">
+                        <i class="fas fa-leaf"></i>
+                        Samling
+                    </h2>
+                    <h3 class="text-xl font-semibold text-gray-800">Login Petugas</h3>
+                    <p class="text-gray-500 text-sm">Masuk untuk mengelola laporan dan armada.</p>
+                </div>
+
+                <!-- Form Login (ID Tetap Sama) -->
+                <form id="loginForm">
+                    <!-- Email / Username -->
+                    <div class="mb-5">
+                        <label class="block text-gray-700 text-sm font-medium mb-2 ml-1">Email / Username</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-3.5 text-gray-400">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <input type="text"
+                                id="email"
+                                placeholder="Masukkan ID Petugas"
+                                class="w-full bg-gray-50 border border-gray-200 px-4 py-3 pl-11 rounded-xl focus:border-primary focus:ring-primary focus:ring-1 outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-2">
+                        <label class="block text-gray-700 text-sm font-medium mb-2 ml-1">Katasandi</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-3.5 text-gray-400">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password"
+                                id="password"
+                                placeholder="••••••••"
+                                class="w-full bg-gray-50 border border-gray-200 px-4 py-3 pl-11 rounded-xl focus:border-primary focus:ring-primary focus:ring-1 outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Pesan Kesalahan -->
+                    <p id="errorMessage" class="text-red-500 text-sm mb-4 h-5 mt-1 font-medium"></p>
+
+                    <!-- Remember + Forgot -->
+                    <div class="flex justify-between items-center text-sm mb-6">
+                        <label class="flex items-center gap-2 text-gray-600 cursor-pointer select-none">
+                            <input type="checkbox" class="w-4 h-4 text-primary focus:ring-primary rounded border-gray-300">
+                            Ingat Saya
+                        </label>
+                        <a href="#" class="text-primary hover:text-primaryHover font-medium hover:underline">Lupa Password?</a>
+                    </div>
+
+                    <!-- Tombol Login -->
+                    <button type="submit" id="loginButton"
+                        class="w-full bg-gray-900 text-white py-3.5 rounded-xl font-bold hover:bg-black transition-all shadow-md hover:shadow-lg transform active:scale-95">
+                        Masuk Dashboard
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- NOTIFIKASI POPUP (Toast) -->
+    <div id="notificationPopup" class="fixed top-5 right-5 hidden z-50">
+        <div class="bg-white border-l-4 border-primary shadow-2xl rounded-lg p-4 flex items-center gap-4 min-w-[300px]">
+            <div class="bg-green-100 p-2 rounded-full">
+                <i class="fas fa-check text-primary text-lg"></i>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-800">Berhasil Melapor!</h4>
+                <p class="text-sm text-gray-600">Petugas sedang menuju lokasi Anda.</p>
+            </div>
+            <button onclick="closeNotification()" class="ml-auto text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Script Panzoom & Map Logic -->
+    <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+    <script>
+      // Logic Panzoom Sesuai Permintaan
+      const elem = document.querySelector('#map-image');
+      if (elem) {
+        const panzoom = Panzoom(elem, {
+            maxScale: 4,
+            minScale: 0.5
+        });
+        elem.parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
+      }
+    </script>
+    
+    <!-- Script Asli Anda -->
+    <script src="database/user.js"></script>
+    <script src="javascript/report.js"></script>
+    <script src="javascript/login.js"></script>
+    <script src="javascript/global.js"></script>
+
+</body>
+</html>

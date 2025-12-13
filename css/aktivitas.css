@@ -1,0 +1,83 @@
+/* /css/aktivitas.css */
+
+/* Container Utama Timeline */
+.timeline-container {
+    position: relative;
+    padding-left: 2.5rem; /* Ruang untuk garis timeline */
+}
+
+/* Garis Vertikal Timeline */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem; /* Posisi horizontal di tengah ruang padding */
+    top: 1rem;
+    bottom: 1rem;
+    width: 3px;
+    background-color: #e5e7eb; /* gray-200 */
+    border-radius: 99px;
+}
+
+/* Item pada Timeline */
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* Lingkaran (Dot) pada Timeline */
+.timeline-dot {
+    position: absolute;
+    left: -2.1rem; /* Menyesuaikan posisi dot ke garis */
+    top: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 3px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-dot i {
+    color: white;
+    font-size: 0.6rem;
+}
+
+/* Kartu Konten Aktivitas */
+.timeline-content {
+    background-color: white;
+    border-radius: 0.75rem; /* rounded-xl */
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #f3f4f6; /* gray-100 */
+    transition: all 0.2s ease-in-out;
+}
+
+.timeline-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Warna Status */
+.status-ongoing .timeline-dot { background-color: #3b82f6; } /* blue-500 */
+.status-ongoing .timeline-content { border-left: 4px solid #3b82f6; }
+
+.status-completed .timeline-dot { background-color: #10b981; } /* emerald-500 */
+.status-completed .timeline-content { border-left: 4px solid #10b981; }
+
+.status-ready .timeline-dot { background-color: #f59e0b; } /* amber-500 */
+.status-ready .timeline-content { border-left: 4px solid #f59e0b; }
+
+/* Tombol menu (ellipsis) */
+.card-menu-button {
+    opacity: 0.3;
+    transition: opacity 0.3s;
+}
+
+.timeline-content:hover .card-menu-button {
+    opacity: 1;
+}
+
+.card-menu {
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
