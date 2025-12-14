@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/cari-truk.css">
     <link rel="stylesheet" href="css/partner.css">
+    <link rel="stylesheet" href="css/auth.css">
     <style>
         body { font-family: 'Inter', sans-serif; }
         
@@ -81,6 +82,30 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="hidden fixed inset-0 bg-black bg-opacity-25 z-[100] flex justify-center items-center backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm m-4">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">Akses Terbatas</h2>
+            <p class="text-sm text-gray-500 mb-6 text-center">Halaman ini hanya untuk admin. Silakan masukkan password.</p>
+            <form id="auth-form" class="space-y-4">
+                <div>
+                    <label for="password-input" class="sr-only">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password-input" class="w-full bg-gray-100 text-gray-900 border-2 border-gray-200 rounded-lg px-4 py-3 text-center text-lg tracking-widest focus:ring-2 focus:ring-green-500 outline-none" placeholder="******">
+                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center text-sm leading-5">
+                            <i id="toggle-password" class="fa-solid fa-eye text-gray-400 cursor-pointer hover:text-gray-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <p id="auth-error" class="text-xs text-red-500 text-center hidden">Password salah. Coba lagi.</p>
+                <button type="submit" class="w-full py-3 rounded-xl font-semibold text-white bg-green-600 hover:bg-green-700 shadow-sm shadow-green-600/30 transition">Masuk</button>
+            </form>
+            <div class="text-center mt-6">
+                <a href="beranda.html" class="text-xs text-gray-400 hover:text-gray-600 transition">&larr; Kembali ke Beranda</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Header Dinamis -->
     <header class="bg-white sticky top-0 z-40 py-4 shadow-sm border-b border-gray-100">
@@ -428,3 +453,5 @@
 <script src="javascript/cari-truk_mitra.js"></script>
 <script src="javascript/tpa.js"></script>
 <script src="javascript/cari-truk.js?v=2"></script>
+<script src="javascript/cari_truk_auth.js"></script>
+

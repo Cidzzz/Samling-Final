@@ -591,11 +591,15 @@ function selectTPS(id) {
 
 function selectDestination(type) { // type is 'tpa' or 'mitra'
     destinationType = type;
-    if (type === 'tpa') {
-        goToStep(3);
-    } else if (type === 'mitra') {
-        goToStep(4);
-    }
+    
+    // Autentikasi sebelum melanjutkan ke langkah berikutnya
+    handleCariTrukAuth(() => {
+        if (type === 'tpa') {
+            goToStep(3);
+        } else if (type === 'mitra') {
+            goToStep(4);
+        }
+    });
 }
 
 function selectTpa(id) {
