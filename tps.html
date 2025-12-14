@@ -81,13 +81,20 @@
     </style>
 </head>
 <body>
-    <a href="beranda.html" class="mx-4 mb-12 mt-4 flex flex-row gap-2 absolute top-4 left-4 bg-white shadow-sm  text-black py-2 px-4 rounded-full hover:bg-green-600 hover:text-white transition-colors z-20">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        <h2 class="text-lg font-bold text-black hover:text-white">Pantau TPS</h2>
-    </a>
+    <header class="bg-white sticky top-0 z-40 py-4 shadow-sm border-b border-gray-100">
+        <div class="w-[94%] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-2 md:gap-2">
+                <!-- Tombol Kembali Bulat (Style Baru) -->
+                <button onclick="handleGlobalBack()" class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-gray-700 duration-200 shrink-0">
+                    <i class="fas fa-arrow-left text-lg"></i>
+                </button>
+                
+                <!-- Judul & Subjudul -->
+                <div>
+                    <h1 id="header-title" class="text-xl md:text-2xl font-bold text-gray-900 leading-tight">Pilih TPS</h1>
+                    <p id="header-subtitle" class="text-xs md:text-sm text-gray-500 font-medium">Pilih dari daftar TPS yang tersedia</p>
+                </div>
+            </div> </div></header>
 
     <!-- Konten Utama -->
     <div class="max-w-7xl mx-auto px-8 pb-12 pt-20">
