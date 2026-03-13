@@ -161,6 +161,7 @@ function openModal(tpsId) {
     if (!tps) return;
     
     const modalBody = document.getElementById('modal-body-content');
+    if (!modalBody) return;
     const tpsModalHTML = `
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center col-span-1 md:col-span-1 relative overflow-hidden">
@@ -218,6 +219,7 @@ function openTpaModal(tpaId) {
     if (!tpa) return;
 
     const modalBody = document.getElementById('modal-body-content');
+    if (!modalBody) return;
     const tpaModalHTML = `
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center">
